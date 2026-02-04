@@ -1,0 +1,77 @@
+Comandos usados practica 1
+
+============================================
+
+Comandos usados practica 2
+    1  ifconfig
+    2  ifconfig eth0 0.0.0.0
+    3  ifconfig
+    4  ifconfig eth0 192.168.1.50 netmask 255.255.255.0
+    5  ifconfig
+    6  ip addr
+    7  ip addr del 192.168.1.50/24 dev eth0
+    8  ip addr
+    9  ip addr add 192.168.1.50/24 dev eth0
+   10  ip addr
+   11  nano /etc/network/interfaces 
+   12  systemctl restart networking
+   13  ip addr
+   14  ifconfig
+   15  nano /etc/resolv.conf
+   16  nmtui
+============================================
+
+Comandos usados practica 3
+    1  exit
+    2  adduser Albania
+    3  ls
+    4  groupadd guest
+    5  getent group guest
+    6  echo /etc/group
+    7  cat /etc/group
+    8  usermod -aG guest Albania
+    9  getent group guest
+   10  userdel -r Albania
+   11  ls
+   12  groupdel guest
+   13  getent group guest
+   14  userdel -r Miguel
+   15  ls
+   16  exit
+    1  sudo su
+    2  su Miguel
+    3  sudo userdel -r Miguel
+    4  userdel -rf Miguel
+    5  sudo userdel -rf Miguel
+    6  ls
+============================================
+
+Comandos usados practica 4
+    1  cd Desktop
+    2  mkdir materia
+    3  cd materia
+    4  touch estudiante.txt
+    5  ls
+    6  vi estudiante.txt
+    7  cat estudiante.txt
+    8  sudo chmod 700 estudiante.txt
+    9  ls -l
+   10  groupadd listado
+   11  sudo groupadd listado
+   12  getent group listado
+   13  sudo chown :listado estudiante.txt
+   14  sudo chmod 770 estudiante.txt 
+   15  ls -l
+   16  mkdir materia2
+   17  rmdir materia2
+   18  ls
+   19  cd ..
+   20  mkdir materia2
+   21  cp materia/estudiante.txt materia2
+   22  ls materia2
+   23  ls -l materia2
+   24  cat materia2/estudiante.txt
+   25  rm materia
+   26  rm -r materia
+   27  rmdir materia2
+============================================

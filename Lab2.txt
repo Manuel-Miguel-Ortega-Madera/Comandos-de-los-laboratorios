@@ -1,0 +1,50 @@
+Comandos usados practica 1
+
+sudo apt update
+sudo apt upgrade
+cat /etc/apt/sources.list
+sudo apt-cache search nmap
+sudo apt install bashtop
+sudo apt purge bashtop
+sudo apt list --upgradable
+sudo apt autoremovesudo apt update
+sudo apt upgrade
+cat /etc/apt/sources.list
+sudo apt-cache search nmap
+sudo apt install bashtop
+sudo apt purge bashtop
+sudo apt list --upgradable
+sudo apt autoremove
+
+============================================
+
+Comandos usados practica 2
+ls /tmp
+    4  touch /tmp/prueba.txt
+    5  ls /tmp
+    6  clear
+    7  sudo crontab -e
+    8  clear
+    9  ls /tmp
+   10  at now + 1 minute
+   11  sudo crontab -e
+   12  ls /tmp
+============================================
+
+Comandos usados practica 3
+    1  lsblk
+    2  sudo reboot
+    3  lsblk
+    4  sudo mkfs.ext4 /dev/sdb
+    5  cd Desktop
+    6  mkdir disco
+    7  sudo mount /dev/sdb ~/Desktop/disco
+    8  cd disco
+    9  sudo touch AdrianAlcantara.txt
+   10  ll
+   11  cd ..
+   12  sudo umount /dev/sdb
+   13  sudo mount /dev/sdb /mnt
+   14  cd /mnt
+   15  ll
+============================================

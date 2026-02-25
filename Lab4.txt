@@ -1,0 +1,47 @@
+Comandos usados practica 1
+
+sudo apt update -y && sudo apt upgrade -y
+sudo systemctl status apache2
+sudo mkdir /var/www/hello
+sudo nano /var/www/hello/index.html
+sudo nano /etc/apache2/sites-available/hello.conf
+a2ensite hello.conf
+sudo systemctl reload apache2
+sudo mkdir /var/www/credencial
+sudo nano /var/www/credencial/index.html <h1>[contenido]<h1>
+sudo nano /etc/apache2/ports.conf
+sudo nano /etc/apache2/sites-available/credencial.conf
+a2ensite credencial.conf
+sudo systemctl reload o restart apache2
+
+============================================
+
+Comandos usados practica 2
+
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install mailutils -y
+sudo apt install postfix -y
+cd /etc/postfix/sasl
+sudo nano /etc/postfix/sasl/sasl_passwd
+sudo postmap /etc/postfix/sasl/sasl_passwd
+sudo chmod 600 /etc/postfix/sasl/sasl_passwd
+sudo chmod 600 /etc/postfix/sasl/sasl_passwd.db
+sudo nano /etc/postfix/main.cf
+sudo systemctl restart postfix
+sudo systemctl status postfix
+echo "cuerpo" | mail -s "asunto" Gmail.com
+
+============================================
+
+Comandos usados practica 3
+
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install cups cups-pdf -y
+sudo systemctl start cups
+cupsctl --remote-admin --remote-any --share-printers
+sudo install ufw -y
+sudo ufw allow 631/tcp
+sudo ufw reload
+ifconfig
+
+============================================

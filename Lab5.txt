@@ -1,0 +1,83 @@
+Comandos usados practica 1
+
+8. ssh manuel@192.168.0.22
+9. exit
+10. ifconfig
+11. sudo apt install rsync -y
+12. sudo systemctl start ssh.socket
+13. cd Desktop
+14. mkdir datos && cd datos
+15. touch archivo{1..100}.txt
+16. ls
+17. cd ..
+18. rsync -avz -e ssh /home/manuel/Desktop/datos manuel@192.168.0.22:/home/manuel/Desktop/datos
+19. nano sync.sh
+20. cd datos
+21. ls
+22. mkdir prueba1
+23. ls
+24. cd ..
+25. sudo chmod +x sync.sh
+26. ./sync.sh
+27. crontab -e
+28. pwd
+29. crontab -e
+30. cd datos
+31. ls
+32. mkdir prueba2
+33. crontab -e
+34. ls
+35. mkdir prueba3
+36. date
+37. ls
+38. date
+39. ls
+40. crontab -e
+41. ls
+42. crontab -e
+ clear
+
+============================================
+
+Comandos usados practica 2
+
+   10  sudo hostnamectl set-hostname nodo1
+   11  clear
+   12  ifconfig
+   13  sudo nano /etc/hosts
+   14  ping nodo2
+   15  clear
+   16  sudo nano /etc/ha.d/authkeys
+   17  cd /etc/ha.d/
+   18  ls
+   19  cat README.config
+   20  sudo nano ha.cf
+   21  ls
+   22  sudo haresources
+   23  sudo nano haresources
+   24  sudo nano ha.cf
+   25  sudo chmod 600 authkeys
+   26  sudo nano ha.cf
+   27  sudo systemctl start heartbeat
+   28  sudo systemctl status heartbeat
+   29  sudo nano ha.cf
+   30  sudo systemctl start heartbeat
+   31  sudo systemctl status heartbeat
+   32  sudo systemctl stop heartbeat
+
+============================================
+
+Comandos usados practica 3
+
+10  sudo apt install apache2 keepalived
+11  echo "<h1>Bienvenido al servidor 1<h1>" | sudo tee /var/www/html/index.html
+echo "<h1>Bienvenido al servidor 2<h1>" | sudo tee /var/www/html/index.html
+12  sudo nano /etc/keepalived/keepalived.conf
+13  sudo systemctl start keepalived
+14  sudo systemctl start apache2
+15  sudo systemctl status apache2 keepalived
+16  sudo systemctl stop keepalived
+17  sudo systemctl status keepalived
+18  sudo systemctl start keepalived
+
+============================================

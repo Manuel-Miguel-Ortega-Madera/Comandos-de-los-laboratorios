@@ -1,0 +1,68 @@
+Comandos usados practica 1
+
+gpg2 --full-generate-key
+mkdir adrian
+cd adrian
+echo "Mambru se fue a la guerra" > confidencial.txt
+gpg2 -e confidencial.txt
+cat confidencial.txt.gpg
+gpg2 -d confidencial.txt.gpg
+gpg2 -d confidencial.txt.gpg > confidencial.txt
+
+============================================
+
+Comandos usados practica 2
+
+sudo apt install ufw
+nmap -p 21,80,22 localhost
+ss -tulnp
+sudo systemctl start apache2 vsftpd
+sudo systemctl start ssh.socket
+sudo systemctl status ssh.socket apache2 vsftpd
+nmap -p 21,80,22 localhost
+ss -tulnp
+ss -tulnp | grep LISTEN
+ifconfig
+iptables -A INPUT -p tcp --dport 80 -j DROP
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+nmap -p 21,80,22 localhost
+sudo iptables -A INPUT -p tcp --dport 21 -j DROP
+sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+nmap -p 21,80,22 localhost
+sudo iptables -D INPUT -p tcp --dport 21 -j DROP
+sudo iptables -D INPUT -p tcp --dport 22 -j DROP
+sudo iptables -D INPUT -p tcp --dport 80 -j DROP
+sudo ufw enable
+sudo ufw deny 80/tcp
+sudo ufw deny 22/tcp
+sudo ufw deny 21/tcp
+sudo ufw allow 21/tcp
+sudo ufw allow 22/tcp
+sudo ufw allow 80/tcp
+
+============================================
+
+Comandos usados practica 3
+
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install snort -y
+clear
+ip a
+ifconfig
+snort -V
+sudo nano /etc/snort/snort.lua
+sudo nano /etc/snort/rules/local.rules
+sudo snort -c /etc/snort/snort.lua -R /etc/snort/rules/local.rules -i eth0 -A alert_fast
+
+============================================
+
+Comandos usados practica 4
+
+1  sudo apt install libpam-google-authenticator
+    2  google-authenticator
+    3  sudo nano /etc/pam.d/sshd
+    4  sudo nano /etc/ssh/sshd_config
+    5  sudo systemctl ssh.socket
+    6  sudo systemctl start ssh.socket
+    7  sudo systemctl restart ssh.socket
+    8  sudo systemctl status ssh.socket

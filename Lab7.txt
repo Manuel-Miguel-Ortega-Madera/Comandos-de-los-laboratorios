@@ -1,0 +1,75 @@
+Comandos usados practica 1
+
+sudo apt install nfs-kernel-server -y
+sudo mkdir -p /home/OS3
+sudo touch /OS3/Adrian{1..100}.txt
+sudo chown nobody:nogroup /OS3
+sudo chmod 777 /OS3
+sudo nano /etc/exports
+sudo exportfs -a
+sudo systemctl restart nfs-kernel-server
+sudo apt install nfs-common -y
+sudo mkdir -p /mnt/nfs_os3
+sudo mount [IP_DEL_SERVIDOR]:/home/OS3 /mnt/nfs_os3
+sudo nano /etc/fstab
+
+============================================
+
+Comandos usados practica 2
+
+sudo apt install samba -y
+sudo systemctl status smbd
+sudo systemctl start smbd
+sudo systemctl status smbd
+sudo groupadd so3
+sudo useradd -m -g so3 adrian
+sudo smbpasswd adrian
+sudo smbpasswd -a adrian
+sudo mkdir /srv/samba
+sudo mkdir /srv/samba/compartido
+cd /srv/samba/compartido
+ls
+touch adrian{1.100}.txt
+sudo touch adrian{1.100}.txt
+ls
+rm adrian\{1.100\}.txt
+ls
+rm adrian{1.100}.txt
+sudo rm adrian{1.100}.txt
+ls
+sudo touch adrian{1..100}.txt
+ls
+exit
+sudo chown -R adrian:os3 /srv/samba/compartido
+history
+sudo chown -R adrian:so3 /srv/samba/compartido
+sudo chmod -R 777 /srv/samba/compartido
+sudo nano /etc/samba/smb.conf
+sudo chown adrian:so3 /srv/samba/compartido/adrian*
+sudo systemctl restart smbd
+sudo systemctl status smbd
+ip a
+cd /srv/samba/compartido
+ls
+cat adrian99.txt
+history
+clear
+
+============================================
+
+Comandos usados practica 3
+
+sudo samba-tool domain provision --use-rfc2307 --realm=SO3.INET --domain=SO3 --server-role=dc --dns-backend=SAMBA_INTERNAL --adminpass='Admin20250762!'
+sudo systemctl stop smbd nmbd winbind
+sudo systemctl disable smbd nmbd winbind
+sudo rm -rf /etc/samba/smb.conf
+sudo rm -rf /var/lib/samba/*
+sudo rm -rf /var/cache/samba/*
+sudo nano /etc/resolv.conf
+sudo nano /etc/krb5.conf
+sudo systemctl unmask samba-ad-dc
+sudo systemctl start samba-ad-dc
+sudo samba-tool user create user passwd
+ping SO3.inet
+
+============================================

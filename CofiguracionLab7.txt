@@ -1,0 +1,24 @@
+sudo samba-tool domain provision --use-rfc2307 --realm=SO3.INET --domain=SO3 --server-role=dc --dns-backend=SAMBA_INTERNAL --adminpass='Admin20250762!'
+
+--------------------------------------------------------------------------------------------
+
+domain SO3.inet
+search SO3.inet
+nameserver 192.168.0.16
+
+--------------------------------------------------------------------------------------------
+
+[libdefaults]
+	default_realm = SO3.inet
+	dns_lookup_realm = false
+	dns_lookup_kdc = true
+
+[realms]
+	SO3.inet = {
+		kdc = 192.168.0.16
+		admin_server = 192.168.0.16
+}
+
+[domain_realm]
+	.so3.inet = SO3.inet
+	so3.inet = SO3.inet

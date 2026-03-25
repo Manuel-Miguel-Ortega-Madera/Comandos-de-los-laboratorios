@@ -1,0 +1,45 @@
+Comandos usados practica 1
+
+    1  sudo apt install docker.io -y
+    2  clear
+    3  docker version
+    4  sudo docker version
+    5  clear
+    6  sudo systemctl status dockerr
+    7  sudo systemctl status docker
+    8  clear
+    9  sudo docker pull nginx 
+   10  sudo docker images
+   11  clear
+   12  ls
+   13  sudo mkdir /home/website
+   14  cd /home/website
+   15  sudo index.html
+   16  sudo nano index.html
+   17  sudo docker run -d --name mi-nginx -p 8888:80 -v /home/website:/usr/share/nginx/html nginx
+   18  clear
+
+============================================
+
+Comandos usados practica 2
+
+    1  sudo docker pull portainer/portainer-ce
+    2  docker images
+    3  sudo docker images
+    4  sudo docker volume create portainer_data
+    5  sudo docker run -d -p 9000:9000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+    6  clear
+
+============================================
+
+Comandos usados practica 3
+
+    1  sudo apt install docker-compose -y
+    2  clear
+    3  mkdir wordpress && cd wordpress
+    4  sudo nano docker-compose.yml
+    5  sudo docker compose up -d
+    6  sudo docker compose ps
+    7  clear
+
+============================================

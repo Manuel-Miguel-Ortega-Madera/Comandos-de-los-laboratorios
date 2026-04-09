@@ -1,0 +1,45 @@
+Comandos usados practica 1
+curl -o webmin-setup-repo.sh https://raw.githubusercontent.com/webmin/webmin/master/webmin-setup-repo.sh
+sudo sh webmin-setup-repo.sh
+sudo apt install webmin --install-recommends -y
+
+============================================
+
+Comandos usados practica 2
+ssh-keygen -t rsa -b 4096
+cat ~/.ssh/id_rsa.pub
+sudo apt install terraform -y
+mkdir terraform && cd terraform
+sudo nano main.tf
+terraform init
+terraform plan
+terraform apply
+============================================
+
+Comandos usados practica 3
+sudo apt install python3-pip python3-winrm -y
+ssh-copy-id root@IP
+mkdir -p /etc/ansible
+sudo nano /etc/ansible/hosts
+ansible linux -m ping
+ansible win -m win_ping
+
+Activar winRM:
+$url = "https://raw.githubusercontent.com/ansible/ansible-documentation/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+$file = "$env:temp\ConfigureRemotingForAnsible.ps1"
+(New-Object System.Net.WebClient).DownloadFile($url, $file)
+powershell.exe -ExecutionPolicy Bypass -File $file
+============================================
+
+Comandos usados practica 4
+touch lab9.txt
+nano lab9.txt
+ansible win -m win_copy -a "src=/home/manuel/Desktop/lab9.txt dest=C:\lab9.txt"
+ansible linux -m reboot
+============================================
+
+Comandos usados practica 5
+nano notepadplusplus.yml
+ansible-playbook notepadplusplus.yml
+nano nginx.yml
+ansible-playbook nginx.yml

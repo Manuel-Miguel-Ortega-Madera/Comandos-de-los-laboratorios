@@ -1,0 +1,79 @@
+sudo apt install ansible -y
+
+ssh-keygen -t rsa #En ambas maquinas
+ssh-copy-id manuel@192.168.0.18 #Maquina cliente de Linux.
+
+.
+.
+.
+
+habilitar winRM.
+
+$url = "https://raw.githubusercontent.com/ansible/ansible-documentation/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+$file = "$env:temp\ConfigureRemotingForAnsible.ps1"
+(New-Object System.Net.WebClient).DownloadFile($url, $file)
+powershell.exe -ExecutionPolicy Bypass -File $file
+
+set-itemproperty -path "HKLM:\System\CurrentControlSet\Control\Lsa" -name "LimitBlankPasswordUse" -value 0
+
+.
+.
+.
+
+nano hosts.ini
+[linux]
+cliente_linux ansible_host=192.168.0.18 ansible_user=manuel
+
+[windows]
+cliente_windows ansible_host=192.168.0.15
+
+[windows:vars]
+ansible_user=Cliente
+ansible_password=
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+
+.
+.
+.
+
+Pruebas de ping:
+
+ansible linux -i hosts.ini -m ping
+
+ansible windows -i hosts.ini -m win_ping
+
+.
+.
+.
+
+Prueba de Uptime:
+
+ansible linux -i hosts.ini -a "uptime"
+
+ansible windows -i hosts.ini -m win_shell -a "(Get-Date) - (Get-CimInstance Win32_OperatingSystem).LastBootUpTime"
+
+.
+.
+.
+
+ansible linux -i hosts.ini -m apt -a "update_cache=yes" --become
+ansible windows -i hosts.ini -m win_reboot
+
+.
+.
+.
+
+
+Playbook (Windows).
+
+Ansible usa YAML porque permite que la "Infraestructura como Código" sea tratada como un documento de texto simple. Esto facilita que varios miembros de un equipo (operaciones, desarrollo, seguridad) puedan revisar el archivo y entender la configuración del sistema de un solo vistazo.
+
+---
+- name: Instalacion de aplicaciones en el laboratorio
+  hosts: windows
+  tasks:
+    - name: Instalar Notepad++ mediante Chocolatey
+      win_chocolatey:
+        name: notepadplusplus
+        state: present
